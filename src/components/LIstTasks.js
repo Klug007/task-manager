@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import Task from "./Task";
+import { TaskContext } from "../context/TaskContext";
 
-function LIstTasks() {
+function ListTasks() {
+  const { tasks } = useContext(TaskContext);
+  console.log(tasks);
   return (
-    <ul className="flex flex-col border-black border mx-auto w-[500px] justify-center my-[25px]">
-      <Task />
-    </ul>
+    <div className="flex flex-col">
+      <h1 className="text-3xl text-center">Список Задач</h1>
+      <ul className="flex flex-col gap-1 mx-auto w-[500px] justify-center my-[25px]">
+        {tasks.map((task) =>
+          task?.checked === false ? <Task key={task.id} task={task} /> : <></>
+        )}
+      </ul>
+    </div>
   );
 }
 
-export default LIstTasks;
+export default ListTasks;

@@ -1,15 +1,14 @@
 import "./App.css";
 import CreateTask from "./components/CreateTask";
-import Header from "./components/Header";
-import LIstTasks from "./components/LIstTasks";
+import ListTasks from "./components/ListTasks";
+import TaskCompleted from "./components/TaskCompleted";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <LIstTasks />
-      <hr />
+    <div className="App grid grid-cols-3 gap-1 mt-10">
       <CreateTask />
+      <ListTasks />
+      <TaskCompleted />
     </div>
   );
 }
